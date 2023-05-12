@@ -63,3 +63,14 @@ ON `departments`.id = `degrees`.`department_id`
 WHERE `departments`.`name` = "Dipartimento di Matematica";
 
 -- Mi risultano 70 query e non 54, mangio e controllo
+
+7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per
+superare ciascuno dei suoi esami
+
+SELECT `exam_id`, `student_id`, COUNT(*)
+FROM `exam_student`
+GROUP BY `exam_id`, `student_id`
+HAVING COUNT(*) > 1
+
+-- TENTATIVO DI INDIVIDUARE ESAMI DATI DUE VOLTE DALLO STESSO studente
+-- https://learnsql.com/blog/how-to-find-duplicate-values-in-sql/
